@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lifecycle.in | EPR Battery Waste Management Consultancy</title>
+    <style>
+        :root {
+            /* Updated color palette with richer, more premium tones */
+            --primary: #0e4e3d;
+            /* Deeper green for sophistication */
+            --secondary: #26a878;
+            /* Vibrant green for accents */
+            --accent: #f2a63b;
+            /* Warm gold for premium feel */
+            --light: #f8faf8;
+            /* Slightly warmer white */
+            --dark: #242424;
+            /* Richer black for contrast */
+            --logo-green: #6bbe2f;
+            /* Brighter green for logo */
+            --gradient-start: #0e4e3d;
+            /* For gradient backgrounds */
+            --gradient-end: #1a7e64;
+            /* For gradient backgrounds */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Changed to Poppins for premium feel */
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            /* Increased line height for better readability */
+            font-size: 1.05rem;
+            /* Slightly larger base font size */
+        }
+
+        /* Enhanced Header */
+        header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+            /* Added shadow for depth */
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            /* Extra bold for logo */
+            letter-spacing: -0.5px;
+        }
+
+        .logo-black {
+            color: white;
+            /* Changed to white for better contrast */
+        }
+
+        .logo-green {
+            color: var(--logo-green);
+            font-weight: 800;
+            /* Extra bold for logo part */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.8rem;
+            /* More spacing between nav items */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            /* Bolder navigation text */
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            /* For underline effect */
+        }
+
+        /* Adding underline effect to nav links */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+            /* Taller hero section */
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(14, 78, 61, 0.7), rgba(38, 168, 120, 0.3));
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            /* Larger headline */
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            /* Extra bold for impact */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Text shadow for depth */
+            line-height: 1.2;
+            /* Tighter line height for headings */
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            /* Normal weight for paragraph */
+            opacity: 0.9;
+            /* Slightly transparent for contrast with heading */
+        }
+
+        /* Enhanced Button Style */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            /* Larger padding */
+            border-radius: 50px;
+            /* Rounded corners */
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            /* Spaced letters */
+            box-shadow: 0 4px 15px rgba(242, 166, 59, 0.3);
+            /* Button shadow */
+        }
+
+        .btn:hover {
+            background-color: #e69c17;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(242, 166, 59, 0.4);
+            /* Enhanced shadow on hover */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+            /* More vertical space */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            /* More space below title */
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            /* Larger section titles */
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            /* Extra bold */
+            margin-bottom: 1.5rem;
+            /* Space for subtitle */
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            /* Fixed width underline */
+            height: 4px;
+            /* Thicker underline */
+            background-color: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Center the underline */
+            border-radius: 2px;
+            /* Rounded underline */
+        }
+
+        /* Add subtle section dividers */
+        section:not(:last-child)::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            margin: 0 auto;
+            position: relative;
+            bottom: -6rem;
+        }
+
+        /* Enhanced Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            /* More space between cards */
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            /* Rounder corners */
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            /* Softer, wider shadow */
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            /* Subtle border */
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-img {
+            height: 220px;
+            /* Taller images */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(14, 78, 61, 0.2), transparent);
+            z-index: 1;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem 1.8rem;
+            /* More padding */
+        }
+
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            /* Larger card titles */
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.8rem;
+            /* Space for mini-underline */
+        }
+
+        .service-content h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .service-content p {
+            color: #555;
+            /* Slightly lighter text for contrast */
+            line-height: 1.7;
+        }
+
+        /* Improved About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            /* More space between text and image */
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: #333;
+            /* Darker text for better readability */
+            font-size: 1.1rem;
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--accent);
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            border-radius: 8px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .about-img:hover img {
+            transform: translate(-5px, -5px);
+        }
+
+        /* Enhanced Approach Steps */
+        .approach-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            counter-reset: step-counter;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 2.5rem 2rem;
+            /* More padding */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+            position: relative;
+            border-bottom: 4px solid var(--accent);
+            /* Bottom accent border */
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .step::before {
+            counter-increment: step-counter;
+            content: "0" counter(step-counter);
+            /* Add leading zero */
+            position: absolute;
+            top: -25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(242, 166, 59, 0.3);
+        }
+
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Enhanced Partners Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .partner-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: rgba(38, 168, 120, 0.2);
+            /* Subtle border color change */
+        }
+
+        .partner-logo {
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo img {
+            transform: scale(1.05);
+        }
+
+        .partner-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .partner-card p {
+            color: #555;
+        }
+
+        /* Improved Contact Section */
+        .contact-wrapper {
+            display: flex;
+            gap: 4rem;
+            /* More space between info and form */
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info>p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info-item i {
+            margin-right: 1.2rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .contact-info-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            /* Larger input fields */
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(38, 168, 120, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(to right, var(--dark), #2c2c2c);
+            color: white;
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.8rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+            padding: 3px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding-top: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.8rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1.2rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-img::before {
+                display: none;
+                /* Remove decorative element on mobile */
+            }
+
+            .step::before {
+                top: -20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Enhanced Animation for Page Load */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title,
+        .service-card,
+        .about-text,
+        .about-img,
+        .step,
+        .partner-card,
+        .contact-info,
+        .contact-form {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Stagger animations for cards */
+        .service-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .step:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .step:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .step:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        /* Additional Premium Touch: Subtle Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Additional stylistic elements */
+        .icon-highlight {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(38, 168, 120, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        /* Add modern scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <span class="logo-black">lifecycle</span><span class="logo-green">.in</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#approach">Our Approach</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    ☰
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Sustainable Battery Waste Management Solutions</h1>
+            <p>We help producers and manufacturers comply with EPR regulations under the Battery Waste Management Rules 2022, through our AI-driven technology and partner network across India.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/api/placeholder/400/300" alt="EPR Compliance">
+                    </div>
+                    <div class="service-content">
+                        <h3>EPR Compliance Management</h3>
+                        <p>We handle complete EPR compliance for battery producers and manufacturers under the 2022 regulations, ensuring documentation, reporting, and adherence to all legal requirements.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/api/placeholder/400/300" alt="Battery Collection">
+                    </div>
+                    <div class="service-content">
+                        <h3>Battery Collection & Segregation</h3>
+                        <p>Our AI-driven technology optimizes the collection and segregation of battery waste across India through strategic partnerships with logistics companies.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/api/placeholder/400/300" alt="Battery Recycling">
+                    </div>
+                    <div class="service-content">
+                        <h3>Recycling Solutions</h3>
+                        <p>We partner with certified EPR recyclers to ensure environmentally responsible handling and processing of waste batteries, recovering valuable materials.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/api/placeholder/400/300" alt="Second Life Batteries">
+                    </div>
+                    <div class="service-content">
+                        <h3>Battery Refurbishment</h3>
+                        <p>We extend battery lifecycles through refurbishment services, giving batteries a second life and reducing overall environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>lifecycle.in is a specialized consultancy focused on helping businesses navigate the complexities of Battery Waste Management under the Extended Producer Responsibility (EPR) regulations established in 2022.</p>
+                    <p>We bridge the gap between regulatory compliance and sustainable waste management through innovative technology and strategic partnerships across India.</p>
+                    <p>Our team combines expertise in environmental regulations, waste management, and technological solutions to provide comprehensive EPR services to battery producers and manufacturers.</p>
+                </div>
+                <div class="about-img">
+                    <img src="/api/placeholder/600/400" alt="About lifecycle.in">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Approach</h2>
+            </div>
+            <div class="approach-steps">
+                <div class="step">
+                    <h3>Assessment</h3>
+                    <p>We evaluate your current battery waste generation, regulatory obligations, and opportunities for improvement.</p>
+                </div>
+                <div class="step">
+                    <h3>Strategy Development</h3>
+                    <p>We create a customized EPR compliance and waste management strategy tailored to your specific business needs.</p>
+                </div>
+                <div class="step">
+                    <h3>Implementation</h3>
+                    <p>We deploy AI-driven technology and activate our network of collection, logistics, and recycling partners.</p>
+                </div>
+                <div class="step">
+                    <h3>Monitoring & Reporting</h3>
+                    <p>We provide continuous tracking, documentation, and reporting to ensure ongoing compliance and optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Technology</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/api/placeholder/600/400" alt="AI Technology">
+                </div>
+                <div class="about-text">
+                    <h3>AI-Driven Waste Management</h3>
+                    <p>Our proprietary AI system optimizes the entire battery waste management lifecycle, from collection to recycling:</p>
+                    <ul style="list-style-position: inside; margin-top: 1rem;">
+                        <li>Predictive collection planning to maximize efficiency</li>
+                        <li>Automated segregation protocols based on battery chemistry and condition</li>
+                        <li>Recycling pathway optimization to maximize material recovery</li>
+                        <li>Second-life assessment algorithms to identify refurbishment candidates</li>
+                        <li>Real-time tracking and reporting for complete transparency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/200/100" alt="Recycling Partner">
+                    </div>
+                    <h3>Certified Recyclers</h3>
+                    <p>EPR-authorized battery recycling facilities across India</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/200/100" alt="Logistics Partner">
+                    </div>
+                    <h3>Logistics Networks</h3>
+                    <p>Nationwide collection and transportation services</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/200/100" alt="Technology Partner">
+                    </div>
+                    <h3>Technology Providers</h3>
+                    <p>AI and tracking system development partners</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/200/100" alt="Refurbishment Partner">
+                    </div>
+                    <h3>Refurbishment Centers</h3>
+                    <p>Specialized battery restoration facilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to streamline your EPR compliance and battery waste management? Contact us today.</p>
+                    <div class="contact-info-item">
+                        <i>📍</i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Green Tech Park, Sector 15, Gurgaon, Haryana, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>📞</i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>✉️</i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@lifecycle.in</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>
+                        <span style="color: white;">lifecycle</span><span style="color: var(--logo-green);">.in</span>
+                    </h3>
+                    <p>Sustainable battery waste management solutions for EPR compliance under the 2022 regulations.</p>
+                    <div class="social-links">
+                        <a href="#"><span>f</span></a>
+                        <a href="#"><span>t</span></a>
+                        <a href="#"><span>in</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#approach">Our Approach</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2022.pdf">EPR Regulations 2022</a></li>
+                        <li><a href="#">Battery Waste Facts</a></li>
+                        <li><a href="#">Compliance Guidelines</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 lifecycle.in. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
